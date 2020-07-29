@@ -8,11 +8,21 @@ const rawJournalData = [
 ];
 
 export default class JournalList extends Component {
-   render() {
-       return (
-           <div>
-               
-           </div>
-       );
-   };
+    constructor(props) {
+        super();
+
+        this.state = {
+            journalData: rawJournalData,
+            greeting: 'Hi there',
+            isOpen: true
+        };
+    }
+    
+    render() {
+        return (
+            <h2>
+                {this.props.heading}
+            </h2>
+        );
+    };
 }
