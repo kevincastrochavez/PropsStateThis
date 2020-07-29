@@ -20,6 +20,12 @@ export default class JournalList extends Component {
             isOpen: true
         };
     }
+
+    handleClearEntries = () => {
+        this.setState({
+            journalData: []
+        })
+    }
     
     render() {
         const journalEntries = this.state.journalData.map(journalEntry => {
@@ -40,6 +46,8 @@ export default class JournalList extends Component {
                 </h2>
 
                 {journalEntries}
+
+                <button onClick={this.handleClearEntries}>Clear Journal Entries</button>
             </div>
         );
     };
