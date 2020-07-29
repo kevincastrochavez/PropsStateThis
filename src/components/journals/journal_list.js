@@ -23,8 +23,29 @@ export default class JournalList extends Component {
 
     handleClearEntries = () => {
         this.setState({
-            journalData: []
-        })
+            journalData: [],
+            isOpen: false
+        });
+    }
+
+    handleShowAllEntries = () => {
+        this.setState({
+            journalData: rawJournalData,
+            isOpen: true
+        });
+    }
+
+    toggleStatus = () => {
+        return this.state.isOpen ?
+            this.setState({ 
+                journalData: [],
+                isOpen: false
+            })
+            :        
+            this.setState({ 
+                journalData: rawJournalData,
+                isOpen: true
+            })
     }
     
     render() {
@@ -48,6 +69,10 @@ export default class JournalList extends Component {
                 {journalEntries}
 
                 <button onClick={this.handleClearEntries}>Clear Journal Entries</button>
+
+                <button onClick={this.handleShowAllEntries}>Show All Entries</button>
+
+                <button onClick={this.toggleStatus}>Toggle Status</button>
             </div>
         );
     };
